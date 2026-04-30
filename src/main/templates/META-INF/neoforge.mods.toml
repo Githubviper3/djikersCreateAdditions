@@ -1,19 +1,19 @@
 modLoader="javafml"
-loaderVersion="[2,)"
-license="All Rights Reserved"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
 
 [[mods]]
-modId="create_custom_lava"
-version="1.0.0"
-displayName="Create Custom Lava"
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
 authors="Djiker"
 
 description='''
-This mod adds a custom lava for Create on NeoForge 1.21.1.
+This mod adds a custom lava for Create on NeoForge ${minecraft_version}.
 
 Requires: Create: Dragons Plus
 
-This project is based on the NeoForge 1.21.1 template, with inspiration and learning from:
+This project is based on the NeoForge ${minecraft_version} template, with inspiration and learning from:
 - Create: Dragons Plus
 - Create: Diesel Generators
 
@@ -31,23 +31,30 @@ Through fluid interactions, the following blocks are made renewable:
 - Colored Terracotta variants
 '''
 
-[[dependencies.create_custom_lava]]
+[[dependencies."${mod_id}"]]
 modId="neoforge"
 type="required"
-versionRange="[21.1,)"
+versionRange="[${neo_version},)"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.create_custom_lava]]
+[[dependencies."${mod_id}"]]
 modId="minecraft"
 type="required"
-versionRange="[1.21.1,1.22)"
+versionRange="${minecraft_version_range}"
 ordering="NONE"
 side="BOTH"
 
-[[dependencies.create_custom_lava]]
+[[dependencies."${mod_id}"]]
 modId="create_dragons_plus"
 type="required"
-versionRange="[1.0.0,)"
+versionRange="${create_dragons_plus_version_range}"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies."${mod_id}"]]
+modId="create"
+type="required"
+versionRange="${create_version_range}"
 ordering="AFTER"
 side="BOTH"
