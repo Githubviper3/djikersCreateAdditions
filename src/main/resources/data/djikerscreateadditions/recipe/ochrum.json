@@ -1,0 +1,10 @@
+{
+	"type": "create:compacting",
+	"heat_requirement": "heated",
+	"ingredients": [
+		{ "item": "create:ochrum", "count": 1 },
+		{ "item": "minecraft:tuff", "count": 1 },
+		{ "type": "fluid_stack", "amount": 100, "fluid": "minecraft:lava" }
+	],
+	"results": [{ "id": "create:ochrum", "count": 2 }]
+}
