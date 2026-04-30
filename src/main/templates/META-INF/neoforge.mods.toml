@@ -47,7 +47,6 @@ authors="Djiker"
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Djiker's create mod additions.
-Somethings should work without create 
 
 '''
 
@@ -89,6 +88,14 @@ Somethings should work without create
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
+
+# Create: Dragons Plus addon
+[[dependencies.${mod_id}]]
+modId="create_dragons_plus"
+type="required"
+versionRange="[${create_dragons_plus_version},)"
+ordering="AFTER"
+side="BOTH"
 
 # Features are specific properties of the game environment, that you may want to declare you require. This example declares
 # that your mod requires GL version 3.2 or higher. Other features will be added. They are side aware so declaring this won't
