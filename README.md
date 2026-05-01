@@ -1,6 +1,7 @@
 This is my mod which adds a custom lava for create neoforge 1.21.1
-
-Mod depends on create dragons plus
+To build it do ./gradlew build or find the gradle task on intelliJ
+There is a working version which has a version of 1.9.0
+Mod depends on create dragons plus 1.8.7 i think error message will tell you
 
 This is based on the neoforge 1.21.1 template and learned from create dragon's plus and create diesel generators
 
