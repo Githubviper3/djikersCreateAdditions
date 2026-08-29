@@ -1,0 +1,13 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    { "item": "minecraft:gunpowder"},
+    { "item": "minecraft:gunpowder"},
+    { "item": "create:cinder_flour" },
+    { "item": "create:cinder_flour" },
+    { "item": "create:cinder_flour" },
+    { "type": "fluid_stack", "amount": 1000, "fluid": "minecraft:lava" }
+  ],
+  "results": [{ "id": "minecraft:redstone", "count": 16 }]
+}

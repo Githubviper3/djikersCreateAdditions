@@ -4,10 +4,12 @@ import com.simibubi.create.AllFluids;
 import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.neoforge.common.NeoForgeMod;
 import net.neoforged.neoforge.fluids.FluidType;
+import plus.dragons.createdragonsplus.common.fluids.dye.DyeVariantRegistry;
 import plus.dragons.createdragonsplus.config.CDPConfig;
 
 import java.util.HashMap;
@@ -16,7 +18,7 @@ import java.util.Map;
 import static net.neoforged.neoforge.fluids.FluidInteractionRegistry.addInteraction;
 import static net.neoforged.neoforge.fluids.FluidInteractionRegistry.InteractionInformation;
 import static plus.dragons.createdragonsplus.common.registry.CDPFluids.DRAGON_BREATH;
-import static plus.dragons.createdragonsplus.common.registry.CDPFluids.DYES_BY_COLOR;
+import static plus.dragons.createdragonsplus.common.registry.CDPFluids.DYES_BY_VARIANT;
 
 public class DCAFluidInteractions {
 
@@ -82,10 +84,16 @@ public class DCAFluidInteractions {
                 DRAGON_BREATH.getType(),
                 fluidState -> fluidState.isSource()
                         ? Blocks.OBSIDIAN.defaultBlockState()
-                        : Blocks.AMETHYST_BLOCK.defaultBlockState()));        var genConcrete = CDPConfig.common().features.dyeFluidsLavaInteractionGenerateColoredConcrete.get();
-        DYES_BY_COLOR.forEach((color, entry) -> {
+                        : Blocks.AMETHYST_BLOCK.defaultBlockState()));
+
+        var genConcrete = CDPConfig.common().features.dyeFluidsLavaInteractionGenerateColoredConcrete.get();
+
+        DYES_BY_VARIANT.forEach((id, entry) -> {
+            var variant = DyeVariantRegistry.get(id).orElseThrow();
             var type = entry.getType();
-            var block = BuiltInRegistries.BLOCK.get(ResourceLocation.parse(color.getName()).withSuffix("_terracotta"));
+            var blockName = variant.serializedName() + "_terracotta";
+
+            var block = BuiltInRegistries.BLOCK.get(ResourceLocation.withDefaultNamespace(blockName));
             if (block == Blocks.AIR)
                 return;
             addInteraction(DCAFluids.CONDENSED_LAVA.get().getFluidType(), new InteractionInformation(
@@ -94,6 +102,7 @@ public class DCAFluidInteractions {
                             ? Blocks.TERRACOTTA.defaultBlockState()
                             : genConcrete ? block.defaultBlockState() : Blocks.COBBLESTONE.defaultBlockState()));
         });
+
 
     }
 }

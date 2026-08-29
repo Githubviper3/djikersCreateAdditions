@@ -1,0 +1,13 @@
+{
+  "type": "create:mixing",
+  "heat_requirement": "heated",
+  "ingredients": [
+    { "item": "minecraft:charcoal"},
+    { "item": "minecraft:charcoal"},
+    { "item": "minecraft:sugar"},
+    { "item": "create:cinder_flour" },
+    { "item": "create:cinder_flour" },
+    { "type": "fluid_stack", "amount": 1000, "fluid": "minecraft:water" }
+  ],
+  "results": [{ "id": "minecraft:gunpowder", "count": 16 }]
+}

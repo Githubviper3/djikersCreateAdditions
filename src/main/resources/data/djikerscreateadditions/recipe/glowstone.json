@@ -1,0 +1,13 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:glowstone_dust"
+    }
+  ]
+}
